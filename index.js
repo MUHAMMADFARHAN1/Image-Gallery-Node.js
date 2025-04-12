@@ -5,24 +5,28 @@ import url from "url";
 
 const PORT = 3000;
 
+// var image_path = [Pic1, pic2, pic3, pic4];
+
+var image_path = {
+  pic1: "First Picture",
+  pic2: "Second Picture",
+  pic3: "Third Picture",
+  pic4: "Fourth Picture",
+};
+
 function requestHandler(request, response) {
-  // console.log(request.headers);
-  //   console.log(request.method);
-  // Retrieve endpoint
   let endpoint = request.url.split("?")[0];
   console.log("Endpoint:", endpoint);
+
   // Retrieve query parameters
   let params = new URLSearchParams(request.url.split("?")[1]);
   console.log("Params:", params.get("name"));
 
   switch (request.method) {
     case "GET":
-      if (endpoint === "/users") {
+      if (endpoint === "/") {
         console.log("Fetching users");
-        response.end(JSON.stringify(users));
-      } else if (endpoint === "/articles") {
-        console.log("Fetching articles");
-        response.end(JSON.stringify(articles));
+        response.end(JSON.stringify(image_path));
       } else {
         let location = path.resolve("./files", "home.html");
         fs.readFile(location, "utf-8", (err, data) => {
