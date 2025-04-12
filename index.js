@@ -63,6 +63,9 @@ function requestHandler(request, response) {
 
           response.end(data);
         });
+      } else {
+        console.log("Fetching users");
+        response.end(JSON.stringify("404:images not found"));
       }
       break;
     case "POST":
