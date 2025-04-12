@@ -16,6 +16,7 @@
   ],
   "author": "Muhammad Farhan",
   "license": "ISC",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/MUHAMMADFARHAN1/Image-Gallery-Node.js/issues"
   },
