@@ -1,0 +1,23 @@
+{
+  "name": "image-gallery",
+  "version": "0.0.1",
+  "description": "Image gallery assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MUHAMMADFARHAN1/Image-Gallery-Node.js.git"
+  },
+  "keywords": [
+    "image",
+    "gallery"
+  ],
+  "author": "Muhammad Farhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MUHAMMADFARHAN1/Image-Gallery-Node.js/issues"
+  },
+  "homepage": "https://github.com/MUHAMMADFARHAN1/Image-Gallery-Node.js#readme"
+}
