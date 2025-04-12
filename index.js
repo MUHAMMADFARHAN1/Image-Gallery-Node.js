@@ -27,45 +27,20 @@ function requestHandler(request, response) {
       if (endpoint === "/") {
         console.log("Fetching users");
         response.end(JSON.stringify(images));
-      } else if (endpoint === "/pic1") {
-        let location = path.resolve("./Home_Images", "pic1.jpg");
-        console.log(location);
-        fs.readFile(location, (err, data) => {
-          if (err) console.log("Reading file failed");
-          response.writeHead(200, { "Content-type": "image/jpg" });
-
-          response.end(data);
-        });
-      } else if (endpoint === "/pic2") {
-        let location = path.resolve("./Home_Images", "pic2.jpg");
-        console.log(location);
-        fs.readFile(location, (err, data) => {
-          if (err) console.log("Reading file failed");
-          response.writeHead(200, { "Content-type": "image/jpg" });
-
-          response.end(data);
-        });
-      } else if (endpoint === "/pic3") {
-        let location = path.resolve("./Home_Images", "pic3.jpg");
-        console.log(location);
-        fs.readFile(location, (err, data) => {
-          if (err) console.log("Reading file failed");
-          response.writeHead(200, { "Content-type": "image/jpg" });
-
-          response.end(data);
-        });
-      } else if (endpoint === "/pic4") {
-        let location = path.resolve("./Home_Images", "pic4.jpg");
-        console.log(location);
-        fs.readFile(location, (err, data) => {
-          if (err) console.log("Reading file failed");
-          response.writeHead(200, { "Content-type": "image/jpg" });
-
-          response.end(data);
-        });
       } else {
-        console.log("Fetching users");
-        response.end(JSON.stringify("404:images not found"));
+        console.log(endpoint);
+        endpoint = endpoint.slice(1) + ".jpg";
+        console.log(endpoint);
+        let location = path.resolve("./Home_Images", endpoint);
+        console.log(location);
+        fs.readFile(location, (err, data) => {
+          if (err) {
+            console.log("Reading file failed");
+            response.end(JSON.stringify("404:image not found"));
+          }
+          response.writeHead(200, { "Content-type": "image/jpg" });
+          response.end(data);
+        });
       }
       break;
     case "POST":
