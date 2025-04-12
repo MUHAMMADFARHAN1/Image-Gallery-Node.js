@@ -36,6 +36,33 @@ function requestHandler(request, response) {
 
           response.end(data);
         });
+      } else if (endpoint === "/pic2") {
+        let location = path.resolve("./Home_Images", "pic2.jpg");
+        console.log(location);
+        fs.readFile(location, (err, data) => {
+          if (err) console.log("Reading file failed");
+          response.writeHead(200, { "Content-type": "image/jpg" });
+
+          response.end(data);
+        });
+      } else if (endpoint === "/pic3") {
+        let location = path.resolve("./Home_Images", "pic3.jpg");
+        console.log(location);
+        fs.readFile(location, (err, data) => {
+          if (err) console.log("Reading file failed");
+          response.writeHead(200, { "Content-type": "image/jpg" });
+
+          response.end(data);
+        });
+      } else if (endpoint === "/pic4") {
+        let location = path.resolve("./Home_Images", "pic4.jpg");
+        console.log(location);
+        fs.readFile(location, (err, data) => {
+          if (err) console.log("Reading file failed");
+          response.writeHead(200, { "Content-type": "image/jpg" });
+
+          response.end(data);
+        });
       }
       break;
     case "POST":
