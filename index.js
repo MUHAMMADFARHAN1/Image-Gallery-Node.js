@@ -27,10 +27,9 @@ function requestHandler(request, response) {
       if (endpoint === "/") {
         console.log("Fetching users");
         response.end(JSON.stringify(images));
-      } else {
+      } else if (endpoint === "/pic1") {
         let location = path.resolve("./Home_Images", "pic1.jpg");
         console.log(location);
-
         fs.readFile(location, (err, data) => {
           if (err) console.log("Reading file failed");
           response.writeHead(200, { "Content-type": "image/jpg" });
