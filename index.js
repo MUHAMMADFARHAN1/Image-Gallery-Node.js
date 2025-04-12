@@ -28,27 +28,15 @@ function requestHandler(request, response) {
         console.log("Fetching users");
         response.end(JSON.stringify(images));
       } else {
-        // let location = path.resolve("./sample");
-        // fs.readFile(location, "utf-8", (err, data) => {
-        //   if (err) console.log("Reading file failed");
-        //   response.end(data);
-        // });
-        let location = path.resolve("./Home_Images", "pic2.jpg");
+        let location = path.resolve("./Home_Images", "pic1.jpg");
         console.log(location);
 
         fs.readFile(location, (err, data) => {
           if (err) console.log("Reading file failed");
-          // response.writeHead(500, { "content-type": "image/jpeg" });
           response.writeHead(200, { "Content-type": "image/jpg" });
-          // response.writeHead(200, { "Content-Type": "application/json" });
-          // response.end(JSON.stringify(data));
-          // console.log(data);
+
           response.end(data);
         });
-
-        // console.log(location);
-        // response.writeHead(404, { "content-type": "image/jpg" });
-        // response.end(location, "binary");
       }
       break;
     case "POST":
@@ -71,6 +59,7 @@ server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
 
+//Sample HTML
 // else {
 //   // Serve a simple HTML page that displays the image
 //   const html = `
