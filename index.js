@@ -37,6 +37,7 @@ function requestHandler(request, response) {
           if (err) {
             console.log("Reading file failed");
             response.end(JSON.stringify("404:image not found"));
+            return;
           }
           response.writeHead(200, { "Content-type": "image/jpg" });
           response.end(data);
