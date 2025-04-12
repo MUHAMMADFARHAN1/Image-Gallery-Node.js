@@ -7,7 +7,7 @@ const PORT = 3000;
 
 // var image_path = [Pic1, pic2, pic3, pic4];
 
-var image_path = {
+var images = {
   pic1: "First Picture",
   pic2: "Second Picture",
   pic3: "Third Picture",
@@ -26,9 +26,9 @@ function requestHandler(request, response) {
     case "GET":
       if (endpoint === "/") {
         console.log("Fetching users");
-        response.end(JSON.stringify(image_path));
+        response.end(JSON.stringify(images));
       } else {
-        let location = path.resolve("./files", "home.html");
+        let location = path.resolve("./sample");
         fs.readFile(location, "utf-8", (err, data) => {
           if (err) console.log("Reading file failed");
           response.end(data);
